@@ -1,0 +1,8 @@
+{"question": "What backbone did the Phase 2 vision classifier fine-tune, and how did it compare to the VGG-16 baseline?", "expected_keywords": ["resnet50", "vgg-16", "accuracy"]}
+{"question": "What class-label bug was found in the Phase 2 project and how was it fixed?", "expected_keywords": ["class_names", "imagefolder", "sorted"]}
+{"question": "What explainability technique does the Phase 2 project use to show why a prediction was made?", "expected_keywords": ["grad-cam", "heatmap"]}
+{"question": "What forecasting model does the Phase 1 BI Copilot project use?", "expected_keywords": ["xgboost", "forecast"]}
+{"question": "What safety guardrail does the Phase 1 text-to-SQL feature use before executing generated SQL?", "expected_keywords": ["select", "disallowed", "read-only"]}
+{"question": "What vector database and embedding approach does Phase 3's RAG pipeline use?", "expected_keywords": ["chroma", "sentence-transformers", "embedding"]}
+{"question": "What agent framework is used to build the multi-agent BI analyst pipeline in Phase 3?", "expected_keywords": ["langgraph"]}
+{"question": "What dataset does the Phase 2 project use by default, and why?", "expected_keywords": ["synthetic", "casting", "kaggle"]}
