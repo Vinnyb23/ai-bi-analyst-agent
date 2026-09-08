@@ -14,7 +14,7 @@ pinned: false
 
 **Phase 3 project** of a 6-month self-directed AI/ML continuing-education program (following the UT Austin PGP-AI certificate). This phase moves from single-model ML (Phases 1-2) into generative AI and agentic workflows: a RAG chatbot over the program's own project documentation, and a 3-node LangGraph pipeline that plays "junior BI analyst" — it queries a database, summarizes what it found, and drafts a written report.
 
-> Live demo: _add your Hugging Face Spaces link here after deploying (Week 18)_
+> Live demo: (https://huggingface.co/spaces/vinnyb23/ai-bi-analyst-agent)
 
 ![Python](https://img.shields.io/badge/python-3.14-blue)
 ![LangGraph](https://img.shields.io/badge/agents-LangGraph-1C3C3C)
