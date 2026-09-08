@@ -36,8 +36,19 @@ Running notes as I work through Weeks 13-18 of the program. Format follows the s
 **What I learned:**
 - Same `sys.path.insert(...)` shim from Phase 1/2 was needed again for `streamlit run src/app.py` — worth just keeping as a standard first two lines in any future `app.py`.
 
-## Week 18: deployment (next)
+## Week 18: deployment
 
-- [ ] Deploy to Hugging Face Spaces (`vinnyb23/ai-bi-analyst-agent`)
-- [ ] Confirm the app runs correctly in fallback mode with no API key on the Space
+- [x] Deploy to Hugging Face Spaces (`vinnyb23/ai-bi-analyst-agent`)
+- [x] Confirm the app runs correctly in fallback mode with no API key on the Space
 - [ ] Add the live demo link to README.md
+
+## Week 19: CI/CD (Phase 4 practice run)
+
+**What I built:** A GitHub Actions workflow (`.github/workflows/ci.yml`) that lints with [ruff](https://docs.astral.sh/ruff/) and runs the full `pytest` suite on every push/PR to `main`. Split lint tooling into its own `requirements-dev.txt` rather than bloating the app's production `requirements.txt`.
+
+**What I learned:**
+- Ruff's *default* rule set on a fresh install turned out to be more opinionated than expected — it flagged every `except Exception:` fallback block (the exact pattern this repo relies on for graceful LLM degradation) as an error under `BLE001`/`S110`. Explicitly pinning `select = ["E", "F", "I"]` in `pyproject.toml` keeps CI focused on real bugs, style, and import order instead of fighting an intentional design choice — a good reminder to always pin an explicit lint config rather than trusting a tool's defaults.
+- CI needs to target the *same* Python version the Dockerfile/Space use (3.14, because of the `numpy==2.5.2` wheel constraint from Week 17-18), not just whatever's convenient — caught this before it became a mismatched, confusing CI failure.
+- Ran the exact lint + test commands locally first, matching what the workflow runs, so the first real CI run isn't also the first real test of the commands themselves.
+
+**Next (Phase 4, Weeks 20-24):** MLflow experiment tracking/model registry, drift monitoring with Evidently AI, and the unified capstone app tying Phases 1-3 together.

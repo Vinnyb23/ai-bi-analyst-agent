@@ -1,0 +1,4 @@
+# Dev/CI-only tooling -- not needed to run the app itself, so this is kept
+# separate from requirements.txt (which is what the Dockerfile / Hugging
+# Face Space installs for the actual running app).
+ruff==0.16.6

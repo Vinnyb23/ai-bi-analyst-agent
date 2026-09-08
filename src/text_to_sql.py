@@ -51,11 +51,26 @@ _DISALLOWED = re.compile(
 # A few canned fallback queries so the pipeline has something real to run
 # even before an API key is configured.
 FALLBACK_QUERIES = {
-    "total sales by region": "SELECT region, ROUND(SUM(sales), 2) AS total_sales FROM sales GROUP BY region ORDER BY total_sales DESC;",
-    "total sales by category": "SELECT category, ROUND(SUM(sales), 2) AS total_sales FROM sales GROUP BY category ORDER BY total_sales DESC;",
-    "monthly sales trend": "SELECT strftime('%Y-%m', order_date) AS month, ROUND(SUM(sales), 2) AS total_sales FROM sales GROUP BY month ORDER BY month;",
-    "top sub-categories by profit": "SELECT sub_category, ROUND(SUM(profit), 2) AS total_profit FROM sales GROUP BY sub_category ORDER BY total_profit DESC LIMIT 10;",
-    "average discount by region": "SELECT region, ROUND(AVG(discount), 3) AS avg_discount FROM sales GROUP BY region ORDER BY avg_discount DESC;",
+    "total sales by region": (
+        "SELECT region, ROUND(SUM(sales), 2) AS total_sales "
+        "FROM sales GROUP BY region ORDER BY total_sales DESC;"
+    ),
+    "total sales by category": (
+        "SELECT category, ROUND(SUM(sales), 2) AS total_sales "
+        "FROM sales GROUP BY category ORDER BY total_sales DESC;"
+    ),
+    "monthly sales trend": (
+        "SELECT strftime('%Y-%m', order_date) AS month, ROUND(SUM(sales), 2) AS total_sales "
+        "FROM sales GROUP BY month ORDER BY month;"
+    ),
+    "top sub-categories by profit": (
+        "SELECT sub_category, ROUND(SUM(profit), 2) AS total_profit "
+        "FROM sales GROUP BY sub_category ORDER BY total_profit DESC LIMIT 10;"
+    ),
+    "average discount by region": (
+        "SELECT region, ROUND(AVG(discount), 3) AS avg_discount "
+        "FROM sales GROUP BY region ORDER BY avg_discount DESC;"
+    ),
 }
 
 

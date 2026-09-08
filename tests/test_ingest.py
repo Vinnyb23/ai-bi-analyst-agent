@@ -1,4 +1,4 @@
-from src.ingest import chunk_documents, load_corpus_documents, embed_texts
+from src.ingest import chunk_documents, embed_texts, load_corpus_documents
 
 
 def test_load_corpus_documents_finds_markdown_files():

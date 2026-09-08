@@ -1,6 +1,6 @@
 import pytest
 
-from src.text_to_sql import _validate_sql, UnsafeSQLError, ask, FALLBACK_QUERIES, run_sql
+from src.text_to_sql import FALLBACK_QUERIES, UnsafeSQLError, _validate_sql, ask, run_sql
 
 
 def test_validate_sql_accepts_plain_select():

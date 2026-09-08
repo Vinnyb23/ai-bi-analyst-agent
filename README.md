@@ -14,8 +14,9 @@ pinned: false
 
 **Phase 3 project** of a 6-month self-directed AI/ML continuing-education program (following the UT Austin PGP-AI certificate). This phase moves from single-model ML (Phases 1-2) into generative AI and agentic workflows: a RAG chatbot over the program's own project documentation, and a 3-node LangGraph pipeline that plays "junior BI analyst" — it queries a database, summarizes what it found, and drafts a written report.
 
-> Live demo: (https://huggingface.co/spaces/vinnyb23/ai-bi-analyst-agent)
+> Live demo: _add your Hugging Face Spaces link here after deploying (Week 18)_
 
+![CI](https://github.com/Vinnyb23/ai-bi-analyst-agent/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.14-blue)
 ![LangGraph](https://img.shields.io/badge/agents-LangGraph-1C3C3C)
 ![Chroma](https://img.shields.io/badge/vector%20store-Chroma-FF6F00)
@@ -117,6 +118,23 @@ python -m src.eval --llm-grade      # + LLM-graded relevance (needs an API key)
 pytest tests/ -v
 ```
 
+## Continuous integration
+
+A GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every push and pull request against `main`:
+
+1. Sets up Python 3.14 (matching the pinned `numpy==2.5.2`, which has no earlier cp3.x wheel).
+2. Installs `requirements.txt` + `requirements-dev.txt`.
+3. Lints with [ruff](https://docs.astral.sh/ruff/) (`ruff check src/ tests/`) — configured in `pyproject.toml` to check for real bugs and import ordering (pyflakes + pycodestyle + isort rules), deliberately excluding stricter rules like flake8-bandit's blind-except check, since broad `except Exception:` fallback blocks are an intentional resilience pattern here (every LLM-touching module degrades to a deterministic output instead of crashing).
+4. Runs the full `pytest` suite.
+
+To run the same checks locally before pushing:
+
+```bash
+pip install -r requirements-dev.txt
+ruff check src/ tests/
+pytest tests/ -v
+```
+
 ## Docker
 
 ```bash
@@ -131,7 +149,7 @@ docker run -p 8501:8501 --env-file .env ai-bi-analyst-agent
 - [x] Week 15: LangGraph 3-agent BI analyst pipeline (query -> summarize -> report)
 - [x] Week 16: evaluation harness (keyword-overlap + optional LLM grading)
 - [x] Week 17: Streamlit app tying both features together
-- [X] Week 18: deploy to Hugging Face Spaces, add live demo link above
+- [ ] Week 18: deploy to Hugging Face Spaces, add live demo link above
 
 ## Part of a larger program
 

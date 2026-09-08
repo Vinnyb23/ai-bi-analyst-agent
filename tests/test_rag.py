@@ -1,4 +1,4 @@
-from src.rag import retrieve, answer
+from src.rag import answer, retrieve
 
 
 def test_retrieve_returns_relevant_chunks():

@@ -108,7 +108,11 @@ def _deterministic_summary(preview: list, row_count: int) -> str:
     for col in numeric_cols:
         values = [row[col] for row in preview if row.get(col) is not None]
         if values:
-            lines.append(f"- `{col}`: min={min(values):.2f}, max={max(values):.2f}, avg={sum(values) / len(values):.2f} (first {len(values)} rows)")
+            avg = sum(values) / len(values)
+            lines.append(
+                f"- `{col}`: min={min(values):.2f}, max={max(values):.2f}, "
+                f"avg={avg:.2f} (first {len(values)} rows)"
+            )
     top_row = preview[0]
     lines.append(f"Top row: {top_row}")
     return "\n".join(lines)

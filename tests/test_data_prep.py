@@ -1,6 +1,6 @@
 import os
 
-from src.data_prep import generate_sales_data, load_to_sqlite, get_schema_description
+from src.data_prep import generate_sales_data, get_schema_description, load_to_sqlite
 
 
 def test_generate_sales_data_has_expected_columns():

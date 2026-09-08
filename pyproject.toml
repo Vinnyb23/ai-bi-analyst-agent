@@ -1,0 +1,12 @@
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint]
+# Keep this focused on real bugs (pyflakes), style consistency
+# (pycodestyle errors), and import ordering -- not opinionated strictness
+# rules like flake8-bandit/blind-except. Broad `except Exception:` blocks
+# are an intentional, load-bearing pattern in this repo (every LLM-touching
+# module must degrade to a deterministic fallback instead of crashing the
+# demo), not something CI should flag as an error.
+select = ["E", "F", "I"]

@@ -118,7 +118,11 @@ def run_eval(testset_path: str = TESTSET_PATH, use_llm_grade: bool = False) -> d
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--llm-grade", action="store_true", help="Also score with an LLM relevance grade (needs an API key)")
+    parser.add_argument(
+        "--llm-grade",
+        action="store_true",
+        help="Also score with an LLM relevance grade (needs an API key)",
+    )
     args = parser.parse_args()
 
     summary = run_eval(use_llm_grade=args.llm_grade)
