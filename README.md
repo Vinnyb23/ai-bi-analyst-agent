@@ -131,7 +131,7 @@ docker run -p 8501:8501 --env-file .env ai-bi-analyst-agent
 - [x] Week 15: LangGraph 3-agent BI analyst pipeline (query -> summarize -> report)
 - [x] Week 16: evaluation harness (keyword-overlap + optional LLM grading)
 - [x] Week 17: Streamlit app tying both features together
-- [ ] Week 18: deploy to Hugging Face Spaces, add live demo link above
+- [X] Week 18: deploy to Hugging Face Spaces, add live demo link above
 
 ## Part of a larger program
 
